@@ -1,0 +1,44 @@
+#background {
+  background-image: asset-url("bg_social.jpg");
+  background-size: cover; /* Pour que l'image couvre tout l'écran */
+  background-position: center; /* Centrer l'image */
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.deviseCard {
+  border-radius: 2rem;
+  transition: .5s;
+  background-color: rgba(255, 255, 255, 0.8);
+  &:hover {
+    border: 1px solid #563D7C;
+  }
+
+  input {
+    padding: .5rem;
+
+    &:focus {
+      box-shadow: 0 0 5px rgba(86, 61, 124, 0.7);
+    }
+  }
+
+  .btn {
+    background-color: #563D7C;
+    border: .5px solid #563D7C;
+
+
+    &:hover {
+      background-color: transparent;
+      border: .5px solid #563D7C;
+      color: #563D7C;
+    }
+  }
+
+  a {
+    color: #563D7C;
+    text-decoration: none;
+    font-weight:400;
+  }
+}

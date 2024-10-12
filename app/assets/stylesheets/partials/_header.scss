@@ -1,0 +1,72 @@
+header {
+  border-bottom: .5px solid lightgray;
+  .logo {
+    width: 30px;
+  }
+
+  nav {
+
+    .bi.bi-plus-square {
+      font-size: 3rem;
+      transition: .5s;
+
+      &:hover {
+        color: #563D7C;
+      }
+    }
+
+    .btn {
+      border-radius: 1rem;
+      font-size: 1.6rem;
+      border: 1px solid #563D7C;
+      color: #563D7C;
+      background-color: transparent;
+      width: 40px;
+
+      &:hover {
+        border: 1px solid #563D7C;
+        color: #fff;
+        background-color: #563D7C;
+      }
+    }
+  }
+
+
+  @media (min-width: 768px) {
+
+    nav {
+
+      .logo {
+        width: 40px;
+      }
+
+      .bi {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: .5rem 1.5rem;
+        width: 60px;
+      }
+
+    }
+  }
+}
+
+.searchNavMobile {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border: 1px solid #563D7C;
+  background-color: #563D7C;
+  border-radius: 3rem;
+  width: 65%;
+  z-index: 1000;
+
+  .bi {
+    font-size: 2rem;
+    color: #fff;
+  }
+}

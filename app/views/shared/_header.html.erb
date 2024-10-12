@@ -1,0 +1,48 @@
+<header class="<%= devise_page? ? 'd-none' : '' %>">
+  <nav class="navbar py-3 ">
+    <div class="container align-items-center justify-content-between">
+      <%= link_to root_path, class: "navbar-brand me-0" do %>
+        <%= image_tag "sharex.svg", alt: "alttext", class: "logo me-1" %>
+      <% end %>
+      <p class="d-md-none m-0">ShareSpace</p>
+      <div class="nav-item d-none d-md-flex divNavigation">
+        <ul class="navbar-nav d-flex align-items-center justify-content-evenly flex-row">
+          <li class="nav-item">
+            <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column" do %>
+              <i class="bi bi-house"></i>
+              <p class="m-0">Home</p>
+            <% end %>
+          </li>
+          <li class="nav-item mx-5">
+            <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column" do %>
+              <i class="bi bi-send"></i>
+              <p class="m-0">Messages</p>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to profile_path(current_user), id:"editButton", class:"d-flex align-items-center justify-content-center flex-column" do %>
+              <i class="bi bi-person-circle"></i>
+              <p class="m-0">Profile</p>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <%= link_to root_path do %>
+        <i class="bi bi-plus-square"></i>
+      <% end %>
+    </div>
+  </nav>
+</header>
+<nav class="searchNavMobile d-md-none shadow">
+  <ul class="navbar-nav d-flex align-items-center flex-row justify-content-between py-3 px-5">
+    <%= link_to root_path, id:"editButton" do %>
+      <i class="bi bi-house"></i>
+    <% end %>
+    <%= link_to root_path, id:"editButton" do %>
+      <i class="bi bi-send"></i>
+    <% end %>
+    <%= link_to profile_path(current_user), id:"editButton" do %>
+      <i class="bi bi-person-circle"></i>
+    <% end %>
+  </ul>
+</nav>

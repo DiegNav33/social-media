@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <% if flash[:notice].present? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if flash[:alert].present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <%= render "shared/header" %>
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+    <%= render "shared/footer" %>
   </body>
 </html>
