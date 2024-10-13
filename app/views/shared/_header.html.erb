@@ -1,4 +1,4 @@
-<header class="<%= devise_page? ? 'd-none' : '' %>">
+<header>
   <nav class="navbar py-3 ">
     <div class="container align-items-center justify-content-between">
       <%= link_to root_path, class: "navbar-brand me-0" do %>
@@ -7,13 +7,19 @@
       <p class="d-md-none m-0">ShareSpace</p>
       <div class="nav-item d-none d-md-flex divNavigation">
         <ul class="navbar-nav d-flex align-items-center justify-content-evenly flex-row">
-          <li class="nav-item">
+          <li class="nav-item me-5">
             <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column" do %>
               <i class="bi bi-house"></i>
               <p class="m-0">Home</p>
             <% end %>
           </li>
-          <li class="nav-item mx-5">
+          <li class="nav-item me-5">
+            <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column" do %>
+              <i class="bi bi-search"></i>
+              <p class="m-0">Search</p>
+            <% end %>
+          </li>
+          <li class="nav-item me-5">
             <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column" do %>
               <i class="bi bi-send"></i>
               <p class="m-0">Messages</p>
@@ -21,7 +27,10 @@
           </li>
           <li class="nav-item">
             <%= link_to profile_path(current_user), id:"editButton", class:"d-flex align-items-center justify-content-center flex-column" do %>
-              <i class="bi bi-person-circle"></i>
+              <%# <i class="bi bi-person-circle"></i> %>
+              <div class="rounded-circle roundedCircleContainer navProfile">
+                <%= image_tag(current_user.profile_picture.present? ? current_user.profile_picture : "diego.jpeg", alt: "Profile Picture", class: "imgProfile") %>
+              </div>
               <p class="m-0">Profile</p>
             <% end %>
           </li>
@@ -33,16 +42,26 @@
     </div>
   </nav>
 </header>
+
 <nav class="searchNavMobile d-md-none shadow">
   <ul class="navbar-nav d-flex align-items-center flex-row justify-content-between py-3 px-5">
     <%= link_to root_path, id:"editButton" do %>
       <i class="bi bi-house"></i>
     <% end %>
     <%= link_to root_path, id:"editButton" do %>
+      <i class="bi bi-search"></i>
+    <% end %>
+    <%= link_to root_path, id:"editButton" do %>
+      <i class="bi bi-patch-plus-fill"></i>
+    <% end %>
+    <%= link_to root_path, id:"editButton" do %>
       <i class="bi bi-send"></i>
     <% end %>
     <%= link_to profile_path(current_user), id:"editButton" do %>
-      <i class="bi bi-person-circle"></i>
+      <%# <i class="bi bi-person-circle"></i> %>
+      <div class="rounded-circle roundedCircleContainer navProfile mobile">
+        <%= image_tag(current_user.profile_picture.present? ? current_user.profile_picture : "diego.jpeg", alt: "Profile Picture", class: "imgProfile") %>
+      </div>
     <% end %>
   </ul>
 </nav>

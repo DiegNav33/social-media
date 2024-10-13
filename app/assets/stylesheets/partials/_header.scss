@@ -62,11 +62,15 @@ header {
   border: 1px solid #563D7C;
   background-color: #563D7C;
   border-radius: 3rem;
-  width: 65%;
+  width: 80%;
   z-index: 1000;
 
   .bi {
     font-size: 2rem;
     color: #fff;
+  }
+
+  .bi-patch-plus-fill {
+    font-size: 2.5rem;
   }
 }

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -18,9 +18,12 @@
     <% if flash[:alert].present? %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <%= render "shared/header" %>
+
+    <% if !devise_page? %>
+      <%= render "shared/header" %>
+    <% end %>
     <main>
-      <div class="container">
+      <div class="<%= devise_page? ? "" : "container"%>">
         <%= yield %>
       </div>
     </main>

@@ -1,5 +1,19 @@
 <section>
   <div>
-
+    <div class="roundedCircleContainer rounded-circle">
+      <%= image_tag(@user.profile_picture.present? ? @user.profile_picture : "diego.jpeg", alt: "Profile Picture", class: "imgProfile") %>
+    </div>
+    <div>
+      <p><%= @user.pseudo.present? ? @user.pseudo : "Salam33" %></p>
+      <div>
+        <% if @user == current_user %>
+          <%= link_to "Edit Profile", root_path, class:"btn btn-outline-primary" %>
+          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class:"btn btn-outline-danger" %>
+        <% else %>
+          <%= link_to "Follow", root_path, class:"btn btn-outline-primary" %>
+          <%= link_to "Message", root_path, class:"btn btn-outline-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </section>
