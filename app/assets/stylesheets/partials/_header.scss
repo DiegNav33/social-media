@@ -45,6 +45,24 @@ header {
 
     nav {
 
+      .navbar-brand, .btnPost, .divNavigation {
+        width: 33.33%;
+        // width: fit-content;
+      }
+
+      // .divNavigation {
+      //   width: fit-content;
+      //   width: 80%;
+      // }
+
+      .btnPost {
+        text-align: end;
+      }
+
+      ul {
+        width: 100%;
+      }
+
       .logo {
         width: 40px;
       }
@@ -63,7 +81,7 @@ header {
 }
 
 .searchNavMobile {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   left: 0;
   right: 0;

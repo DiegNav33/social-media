@@ -2,12 +2,12 @@
   <nav class="navbar py-3 ">
     <div class="container align-items-center justify-content-between">
       <%= link_to root_path, class: "navbar-brand me-0" do %>
-        <%= image_tag "sharex-color.svg", alt: "alttext", class: "logo me-1" %>
+        <%= image_tag "sharex-color.svg", alt: "alttext", class: "logo" %>
       <% end %>
       <p class="d-md-none m-0 logoName">ShareSpace</p>
       <div class="nav-item d-none d-md-flex divNavigation">
-        <ul class="navbar-nav d-flex align-items-center justify-content-evenly flex-row">
-          <li class="nav-item me-5">
+        <ul class="navbar-nav d-flex align-items-center justify-content-around flex-row">
+          <li class="nav-item ">
             <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
               <% if current_page?(root_path) %>
                 <i class="bi bi-house-fill"></i>
@@ -17,7 +17,7 @@
               <p class="m-0">Home</p>
             <% end %>
           </li>
-          <li class="nav-item me-5">
+          <li class="nav-item ">
             <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
               <% if current_page?(root_path) %>
                 <i class="bi bi-search-heart-fill"></i>
@@ -27,7 +27,7 @@
               <p class="m-0">Search</p>
             <% end %>
           </li>
-          <li class="nav-item me-5">
+          <li class="nav-item ">
             <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
               <% if current_page?(root_path) %>
                 <i class="bi bi-send-fill"></i>
@@ -39,7 +39,6 @@
           </li>
           <li class="nav-item">
             <%= link_to profile_path(current_user), id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(profile_path(current_user)) ? "active" : ""}" do %>
-              <%# <i class="bi bi-person-circle"></i> %>
               <div class="rounded-circle roundedCircleContainer navProfile">
                 <%= image_tag(current_user.profile_picture.present? ? current_user.profile_picture : "diego.jpeg", alt: "Profile Picture", class: "imgProfile") %>
               </div>
@@ -48,12 +47,26 @@
           </li>
         </ul>
       </div>
-      <%= link_to root_path do %>
+      <%= link_to root_path, class:"btnPost" do %>
         <i class="bi bi-plus-square"></i>
       <% end %>
     </div>
   </nav>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <nav class="searchNavMobile d-md-none shadow">
   <ul class="navbar-nav d-flex align-items-center flex-row justify-content-between py-3 px-5">

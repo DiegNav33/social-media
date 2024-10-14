@@ -1,5 +1,23 @@
 .containerBio {
-  border-top: .5px solid lightgray;
-  border-bottom: .5px solid lightgray;
+  border: .5px solid #fff;
+  border-radius: 2rem;
   min-height: 50px;
+  width: fit-content;
+}
+
+
+.containerGeneralInfo {
+  border-top: .5px solid #fff;
+  border-bottom: .5px solid #fff;
+  min-height: 50px;
+}
+
+
+@media (min-width: 768px) {
+  #userInfo {
+    .roundedCircleContainer {
+      width: 250px;
+      height: 250px;
+    }
+  }
 }

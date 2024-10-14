@@ -1,7 +1,9 @@
-<footer class="<%= devise_page? ? 'd-none' : '' %> mt-auto">
-  <section class="d-flex justify-content-center align-items-center py-3">
-    <div id="copyright">
-      <p><%= Time.now.year %> ShareSpace. All rights reserved</p>
+<footer class="mt-auto <%= devise_page? ? 'd-none' : '' %>">
+  <section class="container">
+    <div class="row justify-content-center align-items-center py-3">
+      <div class="col-12 text-center">
+        <p>&copy; <%= Time.now.year %> ShareSpace. All rights reserved.</p>
+      </div>
     </div>
   </section>
 </footer>
