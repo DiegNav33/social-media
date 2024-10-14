@@ -1,9 +1,18 @@
 header {
-  border-bottom: .5px solid lightgray;
+  border-bottom: .1px solid #8c7f7f;
+  // background-color: #0E1012;
+
+  background-color: rgba(14, 16, 18, 0.6); /* Couleur avec transparence */
+  backdrop-filter: blur(8px); /* Applique un flou */
+
+  position:fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+
   .logo {
     width: 30px;
   }
-
   nav {
 
     .bi.bi-plus-square {
@@ -55,12 +64,13 @@ header {
 
 .searchNavMobile {
   position: absolute;
-  bottom: 50px;
+  bottom: 30px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  border: 1px solid #563D7C;
-  background-color: #563D7C;
+  border: 2px solid #563D7C;
+  // background-color: #563D7C;
+  background-color: #0E1012;
   border-radius: 3rem;
   width: 80%;
   z-index: 1000;
@@ -70,7 +80,7 @@ header {
     color: #fff;
   }
 
-  .bi-patch-plus-fill {
+  .bi-patch-plus-fill, .bi-patch-plus {
     font-size: 2.5rem;
   }
 }

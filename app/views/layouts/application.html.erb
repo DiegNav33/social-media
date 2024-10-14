@@ -11,19 +11,22 @@
   </head>
 
   <body>
-    <% if flash[:notice].present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
 
-    <% if flash[:alert].present? %>
-      <p class="alert"><%= alert %></p>
+    <% unless request.fullpath == "/users/sign_in" %>
+      <% if flash[:notice].present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+
+      <% if flash[:alert].present? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
     <% end %>
 
     <% if !devise_page? %>
       <%= render "shared/header" %>
     <% end %>
-    <main>
-      <div class="<%= devise_page? ? "" : "container"%>">
+    <main class="<%= devise_page? ? "" : "marginTop"%>">
+      <div class="<%= devise_page? ? "" : "container containerBis containerBorder"%>">
         <%= yield %>
       </div>
     </main>

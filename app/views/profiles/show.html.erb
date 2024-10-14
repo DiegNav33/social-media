@@ -1,19 +1,25 @@
 <section>
-  <div>
+  <div class="d-flex align-items-center pt-4">
     <div class="roundedCircleContainer rounded-circle">
       <%= image_tag(@user.profile_picture.present? ? @user.profile_picture : "diego.jpeg", alt: "Profile Picture", class: "imgProfile") %>
     </div>
     <div>
-      <p><%= @user.pseudo.present? ? @user.pseudo : "Salam33" %></p>
+      <h1><%= @user.pseudo.present? ? @user.pseudo : "Salam33" %></h1>
       <div>
         <% if @user == current_user %>
-          <%= link_to "Edit Profile", root_path, class:"btn btn-outline-primary" %>
-          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class:"btn btn-outline-danger" %>
+          <%= link_to "Edit Profile", root_path, class:"btn btnProfile btn-outline-secondary px-4 py-2" %>
+          <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class:"btn btnProfile btn-outline-danger px-4 py-2" %>
         <% else %>
-          <%= link_to "Follow", root_path, class:"btn btn-outline-primary" %>
-          <%= link_to "Message", root_path, class:"btn btn-outline-primary" %>
+          <%= link_to "Follow", root_path, class:"btn btnProfile" %>
+          <%= link_to "Message", root_path, class:"btn btnProfile" %>
         <% end %>
       </div>
     </div>
+  </div>
+  <div>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+  </div>
+  <div class="containerBio">
+
   </div>
 </section>
