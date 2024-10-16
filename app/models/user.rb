@@ -16,8 +16,8 @@ class User < ApplicationRecord
 
 
   validates :link, format: { with: /\A(http|https):\/\/[\S]+\z/, message: "must be a valid URL" }, allow_blank: true
+  validates :pseudo, presence: true, uniqueness: true
 
 
-  # validates :pseudo, presence: true
 
 end

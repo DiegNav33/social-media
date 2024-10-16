@@ -1,0 +1,55 @@
+<section id="searchInput">
+  <div class="row justify-content-center">
+    <div class="col-8 col-md-6 mt-5">
+      <%= form_with(url: search_path, method: :get, local: true, class: 'd-flex align-items-center position-relative me-3', id: "formSearch") do |f| %>
+        <%= f.label :query, class: 'visually-hidden' %>
+        <%= f.text_field :query, placeholder: "Search a user or a post by its location...", value: params[:query], class: "form-control", id: "inputSearch" %>
+        <button type="submit" class="btn position-absolute" id="iconSearch">
+          <i class="bi bi-search"></i>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section id="elementsFoundSearch">
+  <% if params[:query].present? %>
+    <% if @users.blank? %>
+      <div class="row">
+        <div class="borderRow mt-5">
+          <div class="col-12">
+            <p class="text-center">No users found</p>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <% @users.each do |user| %>
+        <div class="row">
+          <div class="borderRow containerUserFound mt-5">
+            <div class="col-6 col-md-3">
+              <%= link_to profile_path(user) do %>
+                <div class="d-flex align-items-center flex-column">
+                  <div class="roundedCircleContainer rounded-circle">
+                    <%= image_tag(user.profile_picture, class:"imgProfile") %>
+                  </div>
+                  <div class="userFoundDetails mt-2">
+                    <p class="m-0 text-center"><%= user.pseudo %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <h2>Posts related</h2>
+
+    <% if @posts.blank? %>
+      <p>No posts found</p>
+    <% else %>
+      <% @posts.each do |post| %>
+        <p><%= link_to "exemple", post_path(post) %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+</section>

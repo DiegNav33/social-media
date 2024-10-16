@@ -34,7 +34,7 @@
           <div class="nav-item d-none d-md-flex divNavigation w-100">
             <ul class="navbar-nav d-flex align-items-center justify-content-around flex-row w-100">
               <li class="nav-item ">
-                <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
+                <%= link_to root_path, class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
                   <% if current_page?(root_path) %>
                     <i class="bi bi-house-fill"></i>
                   <% else %>
@@ -44,8 +44,8 @@
                 <% end %>
               </li>
               <li class="nav-item ">
-                <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
-                  <% if current_page?(root_path) %>
+                <%= link_to search_path, class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
+                  <% if current_page?(search_path) %>
                     <i class="bi bi-search-heart-fill"></i>
                   <% else %>
                     <i class="bi bi-search"></i>
@@ -54,7 +54,7 @@
                 <% end %>
               </li>
               <li class="nav-item ">
-                <%= link_to root_path, id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
+                <%= link_to root_path, class:"d-flex align-items-center justify-content-center flex-column #{current_page?(root_path) ? "active" : ""}" do %>
                   <% if current_page?(root_path) %>
                     <i class="bi bi-send-fill"></i>
                   <% else %>
@@ -64,9 +64,9 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to profile_path(current_user), id:"editButton", class:"d-flex align-items-center justify-content-center flex-column #{current_page?(profile_path(current_user)) ? "active" : ""}" do %>
+                <%= link_to profile_path(current_user), class:"d-flex align-items-center justify-content-center flex-column #{current_page?(profile_path(current_user)) ? "active" : ""}" do %>
                   <div class="rounded-circle roundedCircleContainer navProfile">
-                    <%= image_tag(current_user.profile_picture.present? ? current_user.profile_picture : "diego.jpeg", alt: "Profile Picture", class: "imgProfile") %>
+                    <%= image_tag(current_user.profile_picture.present? ? current_user.profile_picture : "sharex-color.svg", alt: "Profile Picture", class: "imgProfile") %>
                   </div>
                   <p class="m-0">Profile</p>
                 <% end %>
@@ -75,7 +75,7 @@
           </div>
         </div>
         <div class="col-2 text-end">
-          <%= link_to root_path, class:"btnPost" do %>
+          <%= link_to new_post_path, class:"btnPost" do %>
             <i class="bi bi-plus-square"></i>
           <% end %>
         </div>
@@ -85,7 +85,7 @@
 
   <nav class="searchNavMobile d-md-none shadow">
     <ul class="navbar-nav d-flex align-items-center flex-row justify-content-between py-3 px-5">
-      <%= link_to root_path, id:"editButton", class: "#{current_page?(root_path) ? "active" : ""}" do %>
+      <%= link_to root_path, class: "#{current_page?(root_path) ? "active" : ""}" do %>
 
         <% if current_page?(root_path) %>
           <i class="bi bi-house-fill"></i>
@@ -93,21 +93,21 @@
           <i class="bi bi-house"></i>
         <% end %>
       <% end %>
-      <%= link_to root_path, id:"editButton", class: "#{current_page?(root_path) ? "active" : ""}" do %>
+      <%= link_to root_path, class: "#{current_page?(root_path) ? "active" : ""}" do %>
         <% if current_page?(root_path) %>
           <i class="bi bi-search-heart-fill"></i>
         <% else %>
           <i class="bi bi-search"></i>
         <% end %>
       <% end %>
-      <%= link_to root_path, id:"editButton", class: "#{current_page?(root_path) ? "active" : ""}" do %>
+      <%= link_to root_path, class: "#{current_page?(root_path) ? "active" : ""}" do %>
         <% if current_page?(root_path) %>
           <i class="bi bi-patch-plus-fill"></i>
         <% else %>
           <i class="bi bi-patch-plus"></i>
         <% end %>
       <% end %>
-      <%= link_to root_path, id:"editButton", class: "#{current_page?(root_path) ? "active" : ""}" do %>
+      <%= link_to root_path, class: "#{current_page?(root_path) ? "active" : ""}" do %>
         <% if current_page?(root_path) %>
           <i class="bi bi-send-fill"></i>
         <% else %>
@@ -115,9 +115,9 @@
         <% end %>
 
       <% end %>
-      <%= link_to profile_path(current_user), id:"editButton", class: "#{current_page?(profile_path(current_user)) ? "active" : ""}" do %>
+      <%= link_to profile_path(current_user), class: "#{current_page?(profile_path(current_user)) ? "active" : ""}" do %>
         <div class="rounded-circle roundedCircleContainer navProfile mobile">
-          <%= image_tag(current_user.profile_picture.present? ? current_user.profile_picture : "diego.jpeg", alt: "Profile Picture", class: "imgProfile") %>
+          <%= image_tag(current_user.profile_picture.present? ? current_user.profile_picture : "sharex-color.svg", alt: "Profile Picture", class: "imgProfile") %>
         </div>
       <% end %>
     </ul>
