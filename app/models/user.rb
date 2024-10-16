@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships, source: :follower
 
 
+  validates :link, format: { with: /\A(http|https):\/\/[\S]+\z/, message: "must be a valid URL" }, allow_blank: true
+
+
   # validates :pseudo, presence: true
 
 end

@@ -29,6 +29,18 @@
       </div>
     </div>
   </div>
+
+  <% if @user.link.present? %>
+    <div class="row">
+      <div class="col-12 mt-3">
+        <div id="link">
+          <%= link_to @user.link, target: "_blank", class:"d-flex align-items-center" do %>
+            <i class="bi bi-link-45deg"></i> Website
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-12 mt-3">
       <div id="bioText">
