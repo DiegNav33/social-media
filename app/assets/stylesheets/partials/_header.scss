@@ -1,9 +1,7 @@
 header {
   border-bottom: .1px solid #8c7f7f;
-  // background-color: #0E1012;
-
-  background-color: rgba(14, 16, 18, 0.6); /* Couleur avec transparence */
-  backdrop-filter: blur(8px); /* Applique un flou */
+  background-color: rgba(14, 16, 18, 0.6);
+  backdrop-filter: blur(8px);
 
   position:fixed;
   top: 0;
@@ -13,6 +11,7 @@ header {
   .logo {
     width: 30px;
   }
+
   nav {
 
     .bi.bi-plus-square {
@@ -20,22 +19,7 @@ header {
       transition: .5s;
 
       &:hover {
-        color: #563D7C;
-      }
-    }
-
-    .btn {
-      border-radius: 1rem;
-      font-size: 1.6rem;
-      border: 1px solid #563D7C;
-      color: #563D7C;
-      background-color: transparent;
-      width: 40px;
-
-      &:hover {
-        border: 1px solid #563D7C;
-        color: #fff;
-        background-color: #563D7C;
+        color: #929095;
       }
     }
   }
@@ -45,24 +29,6 @@ header {
 
     nav {
 
-      .navbar-brand, .btnPost, .divNavigation {
-        width: 33.33%;
-        // width: fit-content;
-      }
-
-      // .divNavigation {
-      //   width: fit-content;
-      //   width: 80%;
-      // }
-
-      .btnPost {
-        text-align: end;
-      }
-
-      ul {
-        width: 100%;
-      }
-
       .logo {
         width: 40px;
       }
@@ -70,12 +36,6 @@ header {
       .bi {
         font-size: 2rem;
       }
-
-      .btn {
-        padding: .5rem 1.5rem;
-        width: 60px;
-      }
-
     }
   }
 }
@@ -87,7 +47,6 @@ header {
   right: 0;
   margin: 0 auto;
   border: 2px solid #563D7C;
-  // background-color: #563D7C;
   background-color: #0E1012;
   border-radius: 3rem;
   width: 80%;

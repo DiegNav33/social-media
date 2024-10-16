@@ -1,9 +1,12 @@
 footer {
   border-top: .1px solid #8c7f7f;
 
+  p {
+    font-size: 1.2rem;
+  }
+
 
   @media (max-width: 767px) {
-
     padding-bottom: 8rem;
   }
 }

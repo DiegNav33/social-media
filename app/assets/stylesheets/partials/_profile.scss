@@ -10,6 +10,13 @@
   border-top: .5px solid #fff;
   border-bottom: .5px solid #fff;
   min-height: 50px;
+
+  @media (max-width: 767.8px) {
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 
@@ -19,5 +26,25 @@
       width: 250px;
       height: 250px;
     }
+  }
+}
+
+.noPostMessage {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+#fullNameUser{
+  font-size: 1.2rem;
+  border-bottom: .5px solid #fff;
+  width: fit-content;
+  // border-radius: 1rem;
+}
+
+#bioText {
+  p {
+    margin: 0;
   }
 }

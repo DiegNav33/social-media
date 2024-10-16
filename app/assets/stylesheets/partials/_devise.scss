@@ -42,3 +42,80 @@
     font-weight:400;
   }
 }
+
+.editCardDevise {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+
+  &:hover {
+    border: 1px solid #fff;
+  }
+
+  input, textarea {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+
+    &:focus {
+      color: #fff;
+      background-color: transparent;
+      border: .5px solid #fff;
+    }
+
+    &::placeholder {
+      color: rgb(170, 167, 167);
+    }
+  }
+
+  .form-text {
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .submitBtnForm {
+    color: #fff;
+    background-color: #5B6369;
+    padding: .5rem 2.5rem;
+    border: none;
+
+    &:hover {
+      background-color: #50575b;
+      color: #fff;
+      border: none;
+    }
+  }
+
+  #backBtn {
+    color: #fff;
+    font-size: 2rem;
+    top: 5px;
+    left: 10px;
+  }
+}
+
+.deleteAccount {
+
+  border: .5px solid #fff;
+  width: fit-content;
+  border-radius: 2rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .btnCancel {
+    border: .5px solid red;
+    color: red;
+    background-color: transparent;
+    padding: .5rem 1rem;
+
+    &:hover {
+      background-color: red;
+      color: #fff;
+    }
+  }
+}
