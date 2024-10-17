@@ -1,0 +1,16 @@
+<% if current_page?(new_post_path) %>
+  <h2 class="text-center my-3">Create new post</h2>
+<% else %>
+  <h2 class="text-center my-3">Edit post</h2>
+<% end %>
+
+<section>
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :images, as: :file, input_html: { class: 'form-control', multiple: true, accept: "image/png,image/jpeg,image/jpg"} %>
+    <%= f.input :city, placeholder: "Fort Lauderdale...", input_html: { class: 'form-control' } %>
+    <%= f.input :content, input_html: { class: 'form-control' } %>
+    <div class="form-actions text-center mt-4 mb-2">
+      <%= f.button :submit, class: "btn btn-success btn-lg" %>
+    </div>
+  <% end %>
+</section>

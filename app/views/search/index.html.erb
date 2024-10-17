@@ -1,6 +1,6 @@
 <section id="searchInput">
   <div class="row justify-content-center">
-    <div class="col-8 col-md-6 mt-5">
+    <div class="col-8 col-md-6 mt-4">
       <%= form_with(url: search_path, method: :get, local: true, class: 'd-flex align-items-center position-relative me-3', id: "formSearch") do |f| %>
         <%= f.label :query, class: 'visually-hidden' %>
         <%= f.text_field :query, placeholder: "Search a user or a post by its location...", value: params[:query], class: "form-control", id: "inputSearch" %>
@@ -14,6 +14,7 @@
 
 <section id="elementsFoundSearch">
   <% if params[:query].present? %>
+
     <% if @users.blank? %>
       <div class="row">
         <div class="borderRow mt-5">
@@ -22,11 +23,13 @@
           </div>
         </div>
       </div>
+
     <% else %>
-      <% @users.each do |user| %>
-        <div class="row">
-          <div class="borderRow containerUserFound mt-5">
-            <div class="col-6 col-md-3">
+      <div class="row">
+        <p class="mt-5 mb-0 countFound">Users: (<%= @users.count %>)</p>
+        <div class="containerUserFound mt-5 d-flex">
+          <% @users.each do |user| %>
+            <div class="col-4 col-md-3">
               <%= link_to profile_path(user) do %>
                 <div class="d-flex align-items-center flex-column">
                   <div class="roundedCircleContainer rounded-circle">
@@ -38,18 +41,36 @@
                 </div>
               <% end %>
             </div>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     <% end %>
-    <h2>Posts related</h2>
 
     <% if @posts.blank? %>
-      <p>No posts found</p>
+
+      <div class="row">
+        <div class="mt-5">
+          <div class="col-12">
+            <p class="text-center m-0">No posts found</p>
+          </div>
+        </div>
+      </div>
+
     <% else %>
-      <% @posts.each do |post| %>
-        <p><%= link_to "exemple", post_path(post) %></p>
-      <% end %>
+
+      <div class="row">
+        <div class="col-12">
+          <p class="mt-5 mb-0 countFound">Posts: (<%= @posts.count %>)</p>
+        </div>
+      </div>
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-12 col-md-6">
+          </div>
+        <% end %>
+      </div>
+
     <% end %>
+
   <% end %>
 </section>

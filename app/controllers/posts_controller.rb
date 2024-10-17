@@ -10,6 +10,13 @@ class PostsController < ApplicationController
   end
 
   def create
+    @user = current_user
+    @post = @user.posts.new(post_params)
+    if @post.save
+      redirect_to profile_path(@user), status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -32,6 +39,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :images)
+    params.require(:post).permit(:content, :city, images: [])
   end
 end

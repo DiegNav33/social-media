@@ -2,20 +2,26 @@
   input {
     color: #fff;
     background-color: transparent;
-    border: 2px solid #563D7C;
-    border-radius: 3rem;
+    border: 2px solid transparent;
+    border-bottom: 2px solid #fff;
     padding: 1.5rem 5rem 1.5rem 2rem;
+    font-size: 1.4rem;
 
     &::placeholder {
       color: rgb(170, 167, 167);
+      font-size: 1.4rem;
+    }
+
+    &:focus {
+      border: 2px solid #fff;
     }
   }
 
   #iconSearch {
     right: 10px;
     color: rgb(170, 167, 167);
-    border-left: .5px solid rgb(170, 167, 167);
-    border-radius: inherit;
+    border: .5px solid rgb(170, 167, 167) ;
+    border-radius: .5rem;
     font-size: 1.4rem;
   }
 }

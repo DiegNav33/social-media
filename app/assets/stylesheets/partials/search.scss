@@ -3,6 +3,7 @@
   .roundedCircleContainer {
     width: 80px;
     height: 80px;
+    border: 5px solid #563D7C;
   }
 
   @media (min-width: 768px) {
@@ -10,14 +11,8 @@
       width: 120px;
       height: 120px;
     }
-
   }
 
-  .borderRow {
-    border-top: .5px solid rgb(170, 167, 167);
-    border-bottom: .5px solid rgb(170, 167, 167);
-    padding: 1rem 0;
-  }
   .containerUserFound {
     overflow-x: auto;
     width: 100%;
@@ -25,5 +20,12 @@
 
   .userFoundDetails {
     font-size: 1.2rem;
+  }
+
+  .countFound {
+    border: .5px solid #fff;
+    padding: .5rem 1.5rem;
+    width: fit-content;
+    border-radius: 1rem;
   }
 }
