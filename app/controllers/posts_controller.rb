@@ -26,10 +26,23 @@ class PostsController < ApplicationController
   end
 
   def update
+    #Keep the existing images et add the new ones if exists
+    if params[:posts][:images].present?
+      @post.images.attach(params[:post][:images]) #Add new images
+    end
+
+    #Delete all the images in the params hash to avoid the reboot  of it
+    params[:posts].delete(:images)
+    if @post.update(post_params)
+      redirect_to advert_path(@post), notice: "Post successfully updated", status: :see_other
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to root_path, status: :see_other
   end
 
   private

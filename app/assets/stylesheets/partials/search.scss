@@ -28,4 +28,59 @@
     width: fit-content;
     border-radius: 1rem;
   }
+
+  #postsFoundSearch {
+    .roundedCircleContainer {
+      width: 30px;
+      height: 30px;
+      border: none;
+    }
+
+    .card {
+      height: 500px;
+      color: #fff;
+      border: none;
+      background-color: transparent;
+    }
+
+    .card-header, .card-footer {
+      height: 15%;
+      padding-left: 0;
+    }
+
+    .card-footer {
+      // overflow-y: auto;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding-right: 0;
+
+      p {
+        height: 30%;
+      }
+      .content {
+        font-size: 1rem;
+        font-weight:initial;
+        overflow-y: auto;
+        height: 60%;
+      }
+    }
+
+    .card-body {
+      padding: 0;
+      height: 70%;
+      overflow: hidden;
+      border: .5px solid #fff;
+      border-radius: .5rem;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cityPost {
+      font-size: 1rem;
+    }
+  }
 }
