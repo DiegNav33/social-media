@@ -1,4 +1,4 @@
-#userDetailsPostShow {
+#userDetailsPostShow, .postDetails {
   .roundedCircleContainer {
     width: 50px;
     height: 50px;
@@ -20,6 +20,29 @@
     }
   }
 
+  .cardIndex {
+
+    .card-header, .card-footer {
+      border: none;
+    }
+
+    .card-body {
+      border-radius: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      width: 80%;
+
+      .card-body {
+        height: 500px;
+      }
+    }
+  }
+
+  hr {
+    width: 90%;
+    margin: 0 auto;
+  }
 
 
   .card-header, .card-body, .card-footer {
@@ -49,7 +72,7 @@
     // height: 70%;
 
     @media (min-width: 768px) {
-      height: 560px;
+      height: 600px;
     }
   }
 
@@ -88,7 +111,14 @@
     }
   }
 
-  .bi-heart, .bi-chat-square-dots {
+  .bi-heart, .bi-chat-square-dots, .bi-dot {
     color: #fff;
+  }
+
+  .modal-content {
+    background-color: black;
+    height: 400px;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.14);
   }
 }
