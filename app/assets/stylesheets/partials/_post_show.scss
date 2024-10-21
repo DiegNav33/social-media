@@ -1,0 +1,94 @@
+#userDetailsPostShow {
+  .roundedCircleContainer {
+    width: 50px;
+    height: 50px;
+    border: none;
+  }
+
+  .card {
+    color: #fff;
+    background-color: transparent;
+    // height: 550px;
+    height: fit-content;
+    border: none;
+
+    @media (min-width: 768px) {
+      width: 80%;
+      margin: 0 auto;
+      // height: 700px;
+      height: fit-content;
+    }
+  }
+
+
+
+  .card-header, .card-body, .card-footer {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .card-header {
+    border-bottom: .5px solid #aca1a1;
+    height: 15%;
+  }
+
+  .card-footer {
+    border-top: .5px solid #aca1a1;
+    overflow: hidden;
+    height: 15%;
+    letter-spacing: normal;
+    font-size: 1.4rem
+  }
+
+  .card-body {
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    height: 360px;
+    // height: 70%;
+
+    @media (min-width: 768px) {
+      height: 560px;
+    }
+  }
+
+  .card-body {
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .bi {
+    font-size: 2.5rem;
+    color: #563D7C;
+  }
+
+  #buttonsUserPostShow {
+    .bi {
+      font-size: 1.5rem;
+    }
+
+    .bi-trash3 {
+      color: red;
+    }
+
+    .bi-pencil {
+      color: #fff;
+    }
+
+    a {
+      border: .5px solid #fff;
+    }
+
+    button {
+      border: .5px solid red;
+    }
+  }
+
+  .bi-heart, .bi-chat-square-dots {
+    color: #fff;
+  }
+}

@@ -76,12 +76,18 @@
     top: 5px;
     right: 5px;
     font-size: 2rem;
+    color: #7d7575;
   }
 }
 
 #postsProfile {
   height: 200px;
   overflow: hidden;
+  transition: .5s;
+
+  &:hover {
+    filter:brightness(70%)
+  }
 
   img {
     object-fit: cover;

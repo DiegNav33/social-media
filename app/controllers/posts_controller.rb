@@ -41,8 +41,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @post.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to profile_path(@user), status: :see_other
   end
 
   private

@@ -1,0 +1,78 @@
+<section id="userDetailsPostShow" class="mb-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-2">
+        <div class="card-header py-4">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <div class="roundedCircleContainer rounded-circle me-3">
+                <%= link_to profile_path(@post.user) do %>
+                  <%= image_tag(@post.user.profile_picture, alt: "Profile Picture", class: "imgProfile") %>
+                <% end %>
+              </div>
+              <div class="position-relative">
+                <%= link_to profile_path(@post.user) do %>
+                  <p class="m-0"><%= @post.user.pseudo %></p>
+                <% end %>
+                <p class="m-0 cityPost position-absolute"><%= @post.city %></p>
+              </div>
+            </div>
+            <% if @post.user == current_user %>
+              <div class="d-flex align-items-center" id="buttonsUserPostShow">
+                <%= link_to edit_post_path(@post), class: "btn" do %>
+                  <i class="bi bi-pencil"></i>
+                <% end %>
+                <%= button_to post_path(@post), method: :delete, form_class: 'delete-alertbox', class: "btn ms-3", id: "deleteButton" do %>
+                  <i class="bi bi-trash3"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="card-body p-0">
+          <% if @post.images.attached? %>
+            <% if @post.images.count > 1 %> <!-- Slider si plusieurs images -->
+              <div id="carouselPostImages" class="carousel slide h-100" data-bs-ride="carousel">
+                <div class="carousel-inner h-100">
+                  <% @post.images.each_with_index do |image, index| %>
+                    <div class="carousel-item <%= 'active' if index == 0 %> h-100">
+                      <%= image_tag image, alt: "Post Image #{index + 1}", class: "d-block img-fluid" %>
+                    </div>
+                  <% end %>
+                </div>
+                <!-- Contrôles précédent/suivant -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselPostImages" data-bs-slide="prev">
+                  <%# <span class="carousel-control-prev-icon" aria-hidden="true"></span> %>
+                  <i class="bi bi-arrow-left-circle"></i>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselPostImages" data-bs-slide="next">
+                  <%# <span class="carousel-control-next-icon" aria-hidden="true"></span> %>
+                  <i class="bi bi-arrow-right-circle"></i>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            <% else %> <!-- Si une seule image -->
+              <%= image_tag(@post.images.first, alt: "Post Image", class: "img-fluid") %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex">
+            <%= button_to root_path, class:"btn" do %>
+              <i class="bi bi-heart"></i>
+            <% end %>
+            <%= link_to root_path, class: "btn" do %>
+              <i class="bi bi-chat-square-dots"></i>
+            <% end %>
+          </div>
+          <p class="m-0"><%= @post.user.pseudo %></p>
+          <div class="mt-3">
+            <%= simple_format(@post.content, class: "m-0") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

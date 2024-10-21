@@ -26,7 +26,9 @@
 
     <% else %>
       <div class="row">
-        <p class="mt-5 mb-0 countFound">Users: (<%= @users.count %>)</p>
+        <div class="col-12">
+          <p class="mt-5 mb-0 countFound">Users: (<%= @users.count %>)</p>
+        </div>
         <div class="containerUserFound mt-5 d-flex">
           <% @users.each do |user| %>
             <div class="col-4 col-md-3">
@@ -78,17 +80,14 @@
                       <p class="m-0 cityPost position-absolute"><%= post.city %></p>
                     </div>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body position-relative">
                     <% if post.images.attached? %>
                       <%= image_tag(post.images.first, alt: "Post Image", class: "img-fluid") %>
                     <% end %>
                   </div>
-                  <div class="card-footer">
-                    <p class="m-0"><%= post.user.pseudo %></p>
-                    <div class="content">
-                      <%= simple_format('“' + ' ' + post.content + ' ' + '”', class: "m-0") %>
-                    </div>
-                  </div>
+                  <% if post.images.size > 1 %>
+                    <i class="fa-solid fa-images position-absolute"></i>
+                  <% end %>
                 </div>
               <% end %>
 

@@ -41,6 +41,12 @@
       color: #fff;
       border: none;
       background-color: transparent;
+
+      &:hover {
+        .card-body {
+          filter:brightness(70%)
+        }
+      }
     }
 
     .card-header, .card-footer {
@@ -49,7 +55,6 @@
     }
 
     .card-footer {
-      // overflow-y: auto;
       font-size: 1.2rem;
       font-weight: bold;
       padding-right: 0;
@@ -69,8 +74,9 @@
       padding: 0;
       height: 70%;
       overflow: hidden;
-      border: .5px solid #fff;
+      border: .5px solid #aca1a1;
       border-radius: .5rem;
+      transition: .5s;
     }
 
     img {
@@ -81,6 +87,13 @@
 
     .cityPost {
       font-size: 1rem;
+    }
+
+    .fa-images {
+     right: 5px;
+     top: 85px;
+     color: #7d7575;
+     font-size: 2rem;
     }
   }
 }
