@@ -117,8 +117,64 @@
 
   .modal-content {
     background-color: black;
-    height: 400px;
+    height: 500px;
     border-radius: 1rem;
     box-shadow: 0px 0px 15px 10px rgba(255,255,255,0.14);
+
+    @media (max-width: 340px) {
+      height: 300px;
+    }
+
+    .roundedCircleContainer {
+      width: 30px;
+      height: 30px;
+    }
+
+    .userPseudo {
+      font-size: 1.4rem;
+    }
+
+    .commentContent {
+      font-size: 1.2rem;
+      letter-spacing: normal;
+    }
+
+    .btn-close {
+      background-color: none;
+      filter: invert(1);
+      font-size: 1rem;
+    }
+
+    hr {
+      width: 100%;
+    }
+
+    input, textarea {
+      background-color: transparent;
+    }
+
+    textarea {
+      border-radius: 0;
+      border: none;
+      border-bottom: .5px solid #fff;
+      color: #fff;
+
+      &::placeholder {
+        color: #aca1a1;
+      }
+    }
+
+    .modal-footer {
+      border-top: .5px solid #aca1a1;
+
+      .btn {
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+
+    .modal-header {
+      border-bottom: .5px solid #aca1a1;
+    }
   }
 }
