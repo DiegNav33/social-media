@@ -5,4 +5,8 @@ class Post < ApplicationRecord
   has_many_attached :images
 
   validates :content, presence: true
+
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
 end

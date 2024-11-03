@@ -60,17 +60,83 @@
         </div>
         <div class="card-footer">
           <div class="d-flex">
-            <%= button_to root_path, class:"btn" do %>
-              <i class="bi bi-heart"></i>
-            <% end %>
-            <%= link_to root_path, class: "btn" do %>
+            <% if @post.liked_by?(current_user) %>
+                <% like = @post.likes.find_by(user: current_user) %>
+                <%= button_to like_path(like), method: :delete, class: "btn favButton", data: { action: 'click->favourite#stopPropagation' } do %>
+                  <i class="bi bi-heart-fill"></i>
+                <% end %>
+              <% else %>
+                <%= button_to post_likes_path(@post), method: :post, class: "btn favButton", data: { action: 'click->favourite#stopPropagation' } do %>
+                  <i class="bi bi-heart"></i>
+                <% end %>
+              <% end %>
+            <%= link_to "#", class: "btn", data: { bs_toggle: "modal", bs_target: "#commentsModal-#{@post.id}" } do %>
               <i class="bi bi-chat-square-dots"></i>
+            <% end %>
+          </div>
+          <div class="d-flex align-items-center">
+            <p class="m-0"><%= pluralize(@post.likes.count, "Like") %></p>
+            <i class="bi bi-dot"></i>
+            <%= link_to "#", data: { bs_toggle: "modal", bs_target: "#commentsModal-#{@post.id}" } do %>
+              <p class="m-0"><%= pluralize(@post.comments.count, "comment") %></p>
             <% end %>
           </div>
           <p class="m-0"><%= @post.user.pseudo %></p>
           <div class="mt-3">
             <%= simple_format(@post.content, class: "m-0") %>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal pour afficher les commentaires -->
+  <div class="modal fade" id="commentsModal-<%= @post.id %>" tabindex="-1" aria-labelledby="commentsModalLabel-<%= @post.id %>" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" id="modal">
+        <div class="modal-header">
+          <div class="roundedCircleContainer rounded-circle me-3">
+              <%= link_to profile_path(@post.user) do %>
+                <%= image_tag(@post.user.profile_picture, alt: "Profile Picture", class: "imgProfile") %>
+              <% end %>
+          </div>
+          <p class="m-0 userPseudo"><%= @post.user.pseudo %></p>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body overflow-auto">
+          <!-- User post text -->
+          <div class="d-flex align-items-center mb-3">
+            <div class="roundedCircleContainer rounded-circle me-3">
+              <%= link_to profile_path(@post.user) do %>
+                <%= image_tag(@post.user.profile_picture, alt: "Profile Picture", class: "imgProfile") %>
+              <% end %>
+            </div>
+            <p class="m-0 userPseudo"><%= @post.user.pseudo %> (post creator)</p>
+          </div>
+          <%= simple_format(@post.content, class:"commentContent m-0") %>
+          <hr class="my-3">
+          <!-- Boucle pour afficher les commentaires -->
+          <% @post.comments.each do |comment| %>
+            <div class="d-flex align-items-center mb-3">
+              <div class="roundedCircleContainer rounded-circle me-3">
+                <%= link_to profile_path(comment.user) do %>
+                  <%= image_tag(comment.user.profile_picture, alt: "Profile Picture", class: "imgProfile") %>
+                <% end %>
+              </div>
+              <p class="m-0 userPseudo"><%= comment.user.pseudo %></p>
+            </div>
+            <%= simple_format(comment.content, class:"commentContent m-0") %>
+            <hr class="my-3">
+          <% end %>
+        </div>
+        <!-- Formulaire pour ajouter un commentaire -->
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <%= form_with(model: [@post, Comment.new], local: true, html: { class: 'w-100' }) do |form| %>
+            <div class="input-group">
+              <%= form.text_area :content, placeholder: "Add a comment...", class: "form-control", rows: 2 %>
+              <%= form.submit "Post", class: "btn" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

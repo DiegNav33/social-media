@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: [:create]
+    resources :likes, only: [:create]
   end
   resources :profiles, path: 'users/profile'
+  resources :comments, only: [:destroy]
+  resources :likes, only: [:destroy]
   get '/search', to: 'search#index'
 end
